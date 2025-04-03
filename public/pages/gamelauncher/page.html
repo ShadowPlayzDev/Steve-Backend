@@ -98,21 +98,34 @@
                     return;
                 }
 
-                downloadButton.disabled = true; // Disable the button
-                countdownDiv.style.display = 'block'; // Show the countdown
-                helpLinkDiv.style.display = 'block'; // Show the help link
+                downloadButton.disabled = true;
+                countdownDiv.style.display = 'block';
+                helpLinkDiv.style.display = 'block';
 
                 let count = 5;
-                countdownDiv.textContent = `Downloading the installer\n${count}, `;
+                countdownDiv.textContent = `Downloading the installer\n${count}`;
 
                 const countdownInterval = setInterval(() => {
                     count--;
                     if (count > 0) {
-                        countdownDiv.textContent += `${count}, `;
+                        countdownDiv.textContent = `Downloading the installer\n${count}`;
                     } else {
                         clearInterval(countdownInterval);
-                        countdownDiv.textContent += `Your download is ready.`;
-                        window.location.href = downloadLink;
+                        countdownDiv.textContent = `Downloading the installer\nYour download is ready.`;
+                        // Background GET using fetch
+                        fetch(downloadLink, { method: 'GET' })
+                            .then(response => {
+                                if (response.ok) {
+                                    window.location.href = downloadLink;
+                                } else {
+                                    console.error('Download failed:', response.status);
+                                    alert('Download failed. Please try again.');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Download error:', error);
+                                alert('An error occurred during download.');
+                            });
                     }
                 }, 1000);
             });
