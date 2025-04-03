@@ -1,6 +1,6 @@
 {
   "rewrites": [
     { "source": "/:folder", "destination": "/public/pages/:folder/page.html" },
-    { "source": "/", "destination": "index.html" }
+    { "source": "/", "destination": "https://cdn.jsdelivr.net/gh/ShadowPlayzDev/Steve-Backend/index.html" }
   ]
 }
