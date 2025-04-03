@@ -1,0 +1,6 @@
+{
+  "pageName": "Game Launcher",
+  "pageTitle": "Game Launcher",
+  "pageDesc": "A fully customizable game and app launcher built using ElectronJS",
+  "htmlFilePath": "page.html"
+}
