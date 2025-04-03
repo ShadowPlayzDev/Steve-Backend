@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteveOW's Game Launcher</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            padding: 40px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #64b5f6;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #64b5f6;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #42a5f5;
+        }
+
+        #countdown {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        #help-link {
+            margin-top: 20px;
+        }
+
+        #help-link a {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        #help-link a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SteveOW's Game Launcher</h1>
+        <button id="downloadButton">Download for [Detecting OS...]</button>
+        <div id="countdown" style="display: none;"></div>
+        <div id="help-link" style="display: none;"><a href="/gamelauncher/guide.html" target="_blank">Need help? Click here to view our guide.</a></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadButton = document.getElementById('downloadButton');
+            const countdownDiv = document.getElementById('countdown');
+            const helpLinkDiv = document.getElementById('help-link');
+            let os = "Unknown";
+
+            if (navigator.userAgent.indexOf('Win') !== -1) os = "Windows";
+            if (navigator.userAgent.indexOf('Mac') !== -1) os = "macOS";
+            if (navigator.userAgent.indexOf('Linux') !== -1) os = "Linux";
+
+            downloadButton.textContent = `Download for ${os}`;
+
+            downloadButton.addEventListener('click', () => {
+                let downloadLink = '';
+                if (os === 'Windows') {
+                    downloadLink = 'public/pages/gamelauncher/downloads/launcher.exe';
+                } else if (os === 'macOS') {
+                    downloadLink = 'public/pages/gamelauncher/downloads/launcher.dmg';
+                } else if (os === 'Linux') {
+                    downloadLink = 'public/pages/gamelauncher/downloads/launcher.tar.gz';
+                } else {
+                    alert('Download not available for your OS.');
+                    return;
+                }
+
+                downloadButton.disabled = true; // Disable the button
+                countdownDiv.style.display = 'block'; // Show the countdown
+                helpLinkDiv.style.display = 'block'; // Show the help link
+
+                let count = 5;
+                countdownDiv.textContent = `Downloading the installer\n${count}, `;
+
+                const countdownInterval = setInterval(() => {
+                    count--;
+                    if (count > 0) {
+                        countdownDiv.textContent += `${count}, `;
+                    } else {
+                        clearInterval(countdownInterval);
+                        countdownDiv.textContent += `Your download is ready.`;
+                        window.location.href = downloadLink;
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
