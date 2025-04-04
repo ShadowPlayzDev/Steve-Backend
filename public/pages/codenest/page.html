@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeNest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h1>CodeNest</h1>
+            <button id="assistant-btn">Assistant</button>
+        </div>
+    </header>
+
+    <!-- Layout -->
+    <div class="main-container">
+        <!-- Vertical Tabs (HTML, CSS, JS) -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn" id="html-tab">HTML</button>
+                <button class="tab-btn" id="css-tab">CSS</button>
+                <button class="tab-btn" id="js-tab">JS</button>
+            </div>
+            <div class="code-container">
+                <textarea id="html-editor" placeholder="HTML code..."></textarea>
+                <textarea id="css-editor" placeholder="CSS code..."></textarea>
+                <textarea id="js-editor" placeholder="JavaScript code..."></textarea>
+            </div>
+        </div>
+
+        <!-- Preview Area -->
+        <div class="preview-container">
+            <iframe id="preview" title="Preview" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+
+        <!-- Settings Sidebar -->
+        <div class="sidebar">
+            <h2>CodeNest v 1.0</h2>
+            <button id="toggle-sidebar">Close Sidebar</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
