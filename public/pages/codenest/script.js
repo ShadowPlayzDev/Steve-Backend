@@ -1,7 +1,6 @@
 // Toggle sidebar visibility
 const toggleSidebarButton = document.getElementById('settings-toggle');
 const sidebar = document.getElementById('sidebar');
-const toggleSidebarText = document.getElementById('toggle-sidebar');
 
 // Initially hide the sidebar
 sidebar.style.display = 'none';
@@ -10,9 +9,9 @@ sidebar.style.display = 'none';
 toggleSidebarButton.addEventListener('click', () => {
     if (sidebar.style.display === 'none') {
         sidebar.style.display = 'block';
-        toggleSidebarText.textContent = 'Close Sidebar'; // Change button text
+        toggleSidebarButton.innerHTML = '<span class="material-icons">close</span>'; // Change button text to 'close' icon
     } else {
         sidebar.style.display = 'none';
-        toggleSidebarText.textContent = 'Open Sidebar'; // Change button text
+        toggleSidebarButton.innerHTML = '<span class="material-icons">settings</span>'; // Change button text to 'settings' icon
     }
 });
