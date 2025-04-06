@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CodeNest</title>
-  <link rel="stylesheet" href="pages/codenest/styles.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CodeNest</title>
+    <link rel="stylesheet" href="pages/codenest/styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
-  <!-- Settings Toggle Button -->
-  <button id="settings-toggle" class="settings-toggle-btn">
-    <span class="material-icons">settings</span>
-  </button>
-
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <h2>CodeNest v 1.0</h2>
-    <p>Welcome to your coding nest!</p>
-    <!-- Add sidebar content here -->
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <h1>CodeNest</h1>
-      <button id="assistant-btn">Assistant</button>
+    <!-- Left Sidebar (Assistant) -->
+    <div class="sidebar left" id="assistant-sidebar">
+        <h2>Assistant</h2>
+        <p>How can I help you?</p>
     </div>
-  </header>
 
-  <!-- Main Container -->
-  <div class="main-container">
-    <!-- Editor and Preview -->
-    <div class="editor-container">
-      <div class="code-editors" id="code-container">
-        <!-- Dynamically filled by JS -->
-      </div>
-
-      <!-- Preview Area -->
-      <div class="preview-container">
-        <iframe id="preview" title="Preview"></iframe>
-      </div>
+    <!-- Right Sidebar (Settings) -->
+    <div class="sidebar right" id="settings-sidebar">
+        <h2>Settings</h2>
+        <p>CodeNest v1.0</p>
     </div>
-  </div>
 
-  <script src="pages/codenest/script.js"></script>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <h1>CodeNest</h1>
+            <button id="assistant-toggle" class="icon-btn">
+                <span class="material-icons">assistant</span>
+            </button>
+        </div>
+        <div class="header-right">
+            <button id="settings-toggle" class="icon-btn">
+                <span class="material-icons">settings</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="code-editors" id="code-container"></div>
+        <div class="preview-container">
+            <iframe id="preview" title="Preview"></iframe>
+        </div>
+    </div>
+
+    <script src="pages/codenest/script.js"></script>
 </body>
 </html>
