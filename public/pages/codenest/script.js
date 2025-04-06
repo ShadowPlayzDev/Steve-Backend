@@ -1,32 +1,27 @@
-// Sidebar toggles
-const settingsBtn = document.getElementById('settings-toggle');
-const assistantBtn = document.getElementById('assistant-toggle');
+// Toggle settings sidebar visibility
+const toggleSettingsButton = document.getElementById('settings-toggle');
 const settingsSidebar = document.getElementById('settings-sidebar');
+const closeSettingsButton = document.getElementById('close-settings-btn');
+
+// Toggle assistant sidebar visibility
+const assistantButton = document.getElementById('assistant-btn');
 const assistantSidebar = document.getElementById('assistant-sidebar');
 
-function toggleSidebar(id) {
-    const sidebar = document.getElementById(id);
-    sidebar.classList.toggle('show');
-}
+// Initially hide the sidebars
+settingsSidebar.classList.remove('open');
+assistantSidebar.classList.remove('open');
 
-settingsBtn.addEventListener('click', () => {
-    settingsSidebar.classList.toggle('show');
-    settingsSidebar.classList.add('right');
-    assistantSidebar.classList.remove('show');
+// Open or close settings sidebar
+toggleSettingsButton.addEventListener('click', () => {
+    settingsSidebar.classList.toggle('open');
 });
 
-assistantBtn.addEventListener('click', () => {
-    assistantSidebar.classList.toggle('show');
-    assistantSidebar.classList.add('left');
-    settingsSidebar.classList.remove('show');
+// Open assistant sidebar
+assistantButton.addEventListener('click', () => {
+    assistantSidebar.classList.toggle('open');
 });
 
-// Inject dynamic version data
-const typeFromJs = 'Web';
-const versionFromJs = '1.0';
-const releaseFromJs = 'Stable';
-const assistantFromJs = 'ChatGPT';
-
-document.getElementById('type-js').textContent = typeFromJs;
-document.getElementById('version-js').textContent = versionFromJs;
-document.getElementById('release-js').textContent = releaseFromJs;
+// Close settings sidebar
+closeSettingsButton.addEventListener('click', () => {
+    settingsSidebar.classList.remove('open');
+});
