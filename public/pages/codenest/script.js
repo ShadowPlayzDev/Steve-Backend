@@ -1,14 +1,18 @@
-const toggleSidebarButton = document.getElementById('settings-toggle');
-const sidebar = document.getElementById('sidebar');
+const assistantSidebar = document.getElementById('assistant-sidebar');
+const settingsSidebar = document.getElementById('settings-sidebar');
+const assistantToggle = document.getElementById('assistant-toggle');
+const settingsToggle = document.getElementById('settings-toggle');
 
-// Default icon
-toggleSidebarButton.innerHTML = '<span class="material-icons">settings</span>';
+assistantToggle.addEventListener('click', () => {
+    const isOpen = assistantSidebar.style.display === 'flex';
+    assistantSidebar.style.display = isOpen ? 'none' : 'flex';
+    // Close other sidebar
+    settingsSidebar.style.display = 'none';
+});
 
-toggleSidebarButton.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-
-  const isOpen = sidebar.classList.contains('open');
-  toggleSidebarButton.innerHTML = `
-    <span class="material-icons">${isOpen ? 'close' : 'settings'}</span>
-  `;
+settingsToggle.addEventListener('click', () => {
+    const isOpen = settingsSidebar.style.display === 'flex';
+    settingsSidebar.style.display = isOpen ? 'none' : 'flex';
+    // Close other sidebar
+    assistantSidebar.style.display = 'none';
 });
