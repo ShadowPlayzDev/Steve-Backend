@@ -25,7 +25,7 @@ header {
 }
 
 header .center {
-    display: flex;
+    display: 50;
     flex-direction: column; /* Stack the logos vertically */
     justify-content: center;
     align-items: center;
