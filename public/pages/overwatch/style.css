@@ -17,70 +17,24 @@ header {
     background-color: #1e1e1e;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the content in the header */
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 10;
 }
 
-header .left img,
-header .center img {
-    height: 60px; /* Adjust height as needed */
-    width: auto; /* Maintain aspect ratio */
-}
-
 header .center {
-    flex-grow: 1;
-    text-align: center;
     display: flex;
+    flex-direction: column; /* Stack the logos vertically */
     justify-content: center;
-    gap: 20px; /* Space between the images */
-}
-
-header .right {
-    display: flex;
     align-items: center;
+    gap: 10px; /* Space between the logos */
 }
 
-header #user-info button {
-    background-color: #64b5f6;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-header #user-info button:hover {
-    background-color: #42a5f5;
-}
-
-header #logged-in {
-    display: flex;
-    align-items: center;
-}
-
-header #logged-in img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-header #logged-in button {
-    background-color: #ff4747;
-    border: none;
-    padding: 5px 10px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-header #logged-in button:hover {
-    background-color: #e23939;
+header .center img {
+    height: 60px; /* Adjust the height of both images */
+    width: auto; /* Maintain aspect ratio */
 }
 
 /* Footer with Disclaimer */
