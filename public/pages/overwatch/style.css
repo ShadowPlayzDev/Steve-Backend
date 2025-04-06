@@ -6,7 +6,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* This ensures header is at the top, footer at the bottom */
     align-items: center;
     height: 100vh;
     text-align: center;
@@ -20,6 +20,8 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
 }
 
 header .left img,
@@ -88,6 +90,7 @@ footer {
     padding: 15px;
     text-align: center;
     font-size: 12px;
+    width: 100%;
 }
 
 footer p {
