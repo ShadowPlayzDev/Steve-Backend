@@ -1,55 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeNest</title>
-    <link rel="stylesheet" href="pages/codenest/styles.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="pages/codenest/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- Left Sidebar (Assistant) -->
-    <div class="sidebar left" id="assistant-sidebar">
-        <h2>Assistant</h2>
-        <button class="close-btn" id="close-assistant">
-            <span class="material-icons">close</span>
-        </button>
-        <p>How can I help you?</p>
-    </div>
-
-<!-- Right Sidebar (Settings) -->
-<div class="sidebar right" id="settings-sidebar">
-    <div class="sidebar-header">
-        <h2>Settings</h2>
-        <button class="close-btn" id="close-settings">
-            <span class="material-icons">close</span>
-        </button>
-    </div>
-    <div class="sidebar-content">
-        <p>CodeNest v1.0</p>
-    </div>
-</div>
-
     <!-- Header -->
     <header>
         <div class="header-left">
             <h1>CodeNest</h1>
+            <span class="material-icons">assistant</span>
+        </div>
+        <div class="header-right">
             <button id="assistant-toggle" class="icon-btn">
                 <span class="material-icons">assistant</span>
             </button>
-        </div>
-        <div class="header-right">
             <button id="settings-toggle" class="icon-btn">
                 <span class="material-icons">settings</span>
             </button>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <div class="main-container">
-        <div class="code-editors" id="code-container"></div>
-        <div class="preview-container">
-            <iframe id="preview" title="Preview"></iframe>
+        <!-- Assistant Sidebar -->
+        <div class="sidebar left" id="assistant-sidebar">
+            <div class="sidebar-header">
+                <h2>Assistant</h2>
+                <button class="close-btn" onclick="toggleSidebar('assistant-sidebar')">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <p>How can I help you?</p>
+            <div class="assistant-buttons">
+                <button>Review my code</button>
+                <button>Revise my code</button>
+                <button>Something else</button>
+            </div>
+            <div class="assistant-input-container">
+                <input type="text" placeholder="Type here to use ChatGPT. Enter">
+                <div class="assistant-material">
+                    <span class="material-icons">apps</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Sidebar -->
+        <div class="sidebar right" id="settings-sidebar">
+            <div class="sidebar-header">
+                <h2>Settings</h2>
+                <button class="close-btn" onclick="toggleSidebar('settings-sidebar')">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <label>Theme
+                <select>
+                    <option>Light</option>
+                    <option selected>Dark</option>
+                </select>
+            </label>
+            <label>Layout
+                <select>
+                    <option>Classic</option>
+                    <option>Tabs</option>
+                    <option>Columns</option>
+                </select>
+            </label>
+            <label>CodeNest Assistant
+                <select>
+                    <option selected>ChatGPT</option>
+                    <option>Gemini</option>
+                </select>
+            </label>
+            <div class="settings-footer">
+                CodeNest <span id="type-js"></span> v<span id="version-js"></span> <span id="release-js"></span>
+            </div>
+        </div>
+
+        <!-- Editor Area -->
+        <div class="editor-container">
+            <div class="code-editors" id="code-container"></div>
+            <div class="preview-container">
+                <iframe id="preview" title="Preview"></iframe>
+            </div>
         </div>
     </div>
 
