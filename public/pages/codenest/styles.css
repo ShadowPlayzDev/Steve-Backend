@@ -1,77 +1,93 @@
-/* General Reset & Base */
-body {
+/* Base reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and general layout */
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     height: 100vh;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* Header */
 header {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1e1e1e;
-    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.header-left, .header-right {
+.header-left {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
 header h1 {
+    color: #64b5f6;
     margin: 0;
-    color: #64b5f6;
-}
-
-/* Icon Buttons */
-.icon-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
     font-size: 24px;
-}
-
-.icon-btn:hover {
-    color: #64b5f6;
 }
 
 .material-icons {
     font-size: 28px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease;
 }
 
-/* Main layout */
+.material-icons:hover {
+    color: #64b5f6;
+}
+
+/* Main content container */
 .main-container {
+    flex: 1;
     display: flex;
-    flex-grow: 1;
+    justify-content: center;
+    align-items: flex-start;
     padding: 20px;
-    gap: 20px;
-    overflow: hidden;
+    position: relative;
 }
 
-/* Editor and Preview */
-.code-editors {
+/* Editor container */
+.editor-container {
     flex: 1;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    z-index: 1;
+}
+
+.code-editors {
+    display: flex;
+    gap: 20px;
+    width: 100%;
 }
 
 .preview-container {
-    flex: 1;
     background-color: #1e1e1e;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
 iframe {
@@ -81,19 +97,19 @@ iframe {
     border-radius: 10px;
 }
 
-/* Sidebars */
+/* Sidebar styles */
 .sidebar {
     position: fixed;
     top: 0;
-    height: 100vh;
+    height: 100%;
     width: 300px;
     background-color: #1e1e1e;
     padding: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    z-index: 100;
-    display: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    z-index: 10;
+    display: none;
 }
 
 .sidebar.left {
@@ -104,4 +120,50 @@ iframe {
 .sidebar.right {
     right: 0;
     border-left: 1px solid #333;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    color: #64b5f6;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #f44336;
+}
+
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Scrollbar styling */
+.sidebar-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .code-editors {
+        flex-direction: column;
+    }
 }
