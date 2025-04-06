@@ -32,7 +32,7 @@ header .center {
     gap: 10px; /* Space between the logos */
 }
 
-header .center img {
+header .center .logo {
     height: 60px; /* Adjust the height of both images */
     width: auto; /* Maintain aspect ratio */
 }
