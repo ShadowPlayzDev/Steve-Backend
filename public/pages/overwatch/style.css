@@ -6,7 +6,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* This ensures header is at the top, footer at the bottom */
+    justify-content: space-between; /* Ensures header is at the top, footer at the bottom */
     align-items: center;
     height: 100vh;
     text-align: center;
@@ -17,7 +17,7 @@ header {
     background-color: #1e1e1e;
     padding: 20px;
     display: flex;
-    justify-content: center; /* Center the content in the header */
+    justify-content: center; /* Centers the content horizontally */
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
@@ -32,9 +32,20 @@ header .center {
     gap: 10px; /* Space between the logos */
 }
 
+/* Styling for logos */
 header .center .logo {
-    height: 60px; /* Adjust the height of both images */
     width: auto; /* Maintain aspect ratio */
+}
+
+/* Profile Manager Logo */
+.profile-manager-logo {
+    height: 60px; /* Set a fixed height for Profile Manager logo */
+}
+
+/* Overwatch Logo */
+.overwatch-logo {
+    height: 50px; /* Set a fixed height for Overwatch logo */
+    max-height: 100px; /* Ensure it doesn't get too large */
 }
 
 /* Footer with Disclaimer */
