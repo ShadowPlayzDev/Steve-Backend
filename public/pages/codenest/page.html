@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeNest</title>
-    <link rel="stylesheet" href="pages/codenest/styles.css">
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeNest</title>
+  <link rel="stylesheet" href="pages/codenest/styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <h1>CodeNest</h1>
-            <button id="assistant-btn">Assistant</button>
-        </div>
-    </header>
+  <!-- Settings Toggle Button -->
+  <button id="settings-toggle" class="settings-toggle-btn">
+    <span class="material-icons">settings</span>
+  </button>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Settings Sidebar (Hidden by Default) -->
-        <div class="sidebar" id="sidebar">
-            <h2>CodeNest v 1.0</h2>
-            <button id="toggle-sidebar">Close Sidebar</button>
-        </div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>CodeNest v 1.0</h2>
+    <p>Welcome to your coding nest!</p>
+    <!-- Add sidebar content here -->
+  </div>
 
-        <!-- Editor and Preview -->
-        <div class="editor-container">
-            <!-- Dynamically change the Layout with JS -->
-            <div class="code-editors" id="code-container">
-                <!-- Code editors for HTML, CSS, and JS will go here -->
-            </div>
-
-            <!-- Preview Area -->
-            <div class="preview-container">
-                <iframe id="preview" title="Preview" style="width:100%; height:100%; border:none;"></iframe>
-            </div>
-        </div>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <h1>CodeNest</h1>
+      <button id="assistant-btn">Assistant</button>
     </div>
+  </header>
 
-    <!-- Settings Toggle Button -->
-    <button id="settings-toggle" class="settings-toggle-btn">
-        <span class="material-icons">settings</span>
-    </button>
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Editor and Preview -->
+    <div class="editor-container">
+      <div class="code-editors" id="code-container">
+        <!-- Dynamically filled by JS -->
+      </div>
 
-    <!-- Script -->
-    <script src="pages/codenest/script.js"></script>
+      <!-- Preview Area -->
+      <div class="preview-container">
+        <iframe id="preview" title="Preview"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="pages/codenest/script.js"></script>
 </body>
 </html>
