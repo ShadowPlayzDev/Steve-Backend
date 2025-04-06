@@ -1,33 +1,32 @@
-const assistantBtn = document.getElementById('assistant-btn');
-const settingsBtn = document.getElementById('settings-btn');
-
-const assistantSidebar = document.getElementById('assistant-sidebar');
+// Sidebar toggles
+const settingsBtn = document.getElementById('settings-toggle');
+const assistantBtn = document.getElementById('assistant-toggle');
 const settingsSidebar = document.getElementById('settings-sidebar');
+const assistantSidebar = document.getElementById('assistant-sidebar');
 
-const closeAssistant = document.getElementById('close-assistant');
-const closeSettings = document.getElementById('close-settings');
+function toggleSidebar(id) {
+    const sidebar = document.getElementById(id);
+    sidebar.classList.toggle('show');
+}
 
-// Initially hide both sidebars
-assistantSidebar.style.display = 'none';
-settingsSidebar.style.display = 'none';
-
-// Toggle Assistant Sidebar
-assistantBtn.addEventListener('click', () => {
-    const isVisible = assistantSidebar.style.display === 'block';
-    assistantSidebar.style.display = isVisible ? 'none' : 'block';
-});
-
-// Toggle Settings Sidebar
 settingsBtn.addEventListener('click', () => {
-    const isVisible = settingsSidebar.style.display === 'block';
-    settingsSidebar.style.display = isVisible ? 'none' : 'block';
+    settingsSidebar.classList.toggle('show');
+    settingsSidebar.classList.add('right');
+    assistantSidebar.classList.remove('show');
 });
 
-// Close buttons
-closeAssistant.addEventListener('click', () => {
-    assistantSidebar.style.display = 'none';
+assistantBtn.addEventListener('click', () => {
+    assistantSidebar.classList.toggle('show');
+    assistantSidebar.classList.add('left');
+    settingsSidebar.classList.remove('show');
 });
 
-closeSettings.addEventListener('click', () => {
-    settingsSidebar.style.display = 'none';
-});
+// Inject dynamic version data
+const typeFromJs = 'Web';
+const versionFromJs = '1.0';
+const releaseFromJs = 'Stable';
+const assistantFromJs = 'ChatGPT';
+
+document.getElementById('type-js').textContent = typeFromJs;
+document.getElementById('version-js').textContent = versionFromJs;
+document.getElementById('release-js').textContent = releaseFromJs;
