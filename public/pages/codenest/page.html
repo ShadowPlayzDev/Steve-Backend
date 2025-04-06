@@ -5,90 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeNest</title>
     <link rel="stylesheet" href="pages/codenest/styles.css">
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-left">
+        <div class="header-container">
             <h1>CodeNest</h1>
-            <span class="material-icons">assistant</span>
-        </div>
-        <div class="header-right">
-            <button id="assistant-toggle" class="icon-btn">
-                <span class="material-icons">assistant</span>
-            </button>
-            <button id="settings-toggle" class="icon-btn">
-                <span class="material-icons">settings</span>
-            </button>
+            <button id="assistant-btn" class="theme-btn">Assistant</button>
         </div>
     </header>
 
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Assistant Sidebar -->
-        <div class="sidebar left" id="assistant-sidebar">
-            <div class="sidebar-header">
-                <h2>Assistant</h2>
-                <button class="close-btn" onclick="toggleSidebar('assistant-sidebar')">
-                    <span class="material-icons">close</span>
-                </button>
-            </div>
-            <p>How can I help you?</p>
-            <div class="assistant-buttons">
-                <button>Review my code</button>
-                <button>Revise my code</button>
-                <button>Something else</button>
-            </div>
-            <div class="assistant-input-container">
-                <input type="text" placeholder="Type here to use ChatGPT. Enter">
-                <div class="assistant-material">
-                    <span class="material-icons">apps</span>
-                </div>
-            </div>
+        <!-- Settings Sidebar (Hidden by Default) -->
+        <div class="sidebar" id="settings-sidebar">
+            <h2>Settings | X</h2>
+            <label for="theme-dropdown">Theme:</label>
+            <select id="theme-dropdown">
+                <option value="light">Light</option>
+                <option value="dark" selected>Dark</option>
+            </select>
+
+            <label for="layout-dropdown">Layout:</label>
+            <select id="layout-dropdown">
+                <option value="classic">Classic</option>
+                <option value="tabs">Tabs</option>
+                <option value="columns">Columns</option>
+            </select>
+
+            <label for="assistant-dropdown">Assistant:</label>
+            <select id="assistant-dropdown">
+                <option value="chatgpt">ChatGPT</option>
+                <option value="gemini">Gemini</option>
+            </select>
+
+            <p>CodeNest {typeFromJs} v{versionFromJs} {releaseFromJs}</p>
+            <button id="close-settings-btn">Close</button>
         </div>
 
-        <!-- Settings Sidebar -->
-        <div class="sidebar right" id="settings-sidebar">
-            <div class="sidebar-header">
-                <h2>Settings</h2>
-                <button class="close-btn" onclick="toggleSidebar('settings-sidebar')">
-                    <span class="material-icons">close</span>
-                </button>
-            </div>
-            <label>Theme
-                <select>
-                    <option>Light</option>
-                    <option selected>Dark</option>
-                </select>
-            </label>
-            <label>Layout
-                <select>
-                    <option>Classic</option>
-                    <option>Tabs</option>
-                    <option>Columns</option>
-                </select>
-            </label>
-            <label>CodeNest Assistant
-                <select>
-                    <option selected>ChatGPT</option>
-                    <option>Gemini</option>
-                </select>
-            </label>
-            <div class="settings-footer">
-                CodeNest <span id="type-js"></span> v<span id="version-js"></span> <span id="release-js"></span>
-            </div>
-        </div>
-
-        <!-- Editor Area -->
+        <!-- Editor and Preview -->
         <div class="editor-container">
-            <div class="code-editors" id="code-container"></div>
+            <div class="code-editors" id="code-container">
+                <!-- Code editors for HTML, CSS, and JS will go here -->
+            </div>
+
+            <!-- Preview Area -->
             <div class="preview-container">
-                <iframe id="preview" title="Preview"></iframe>
+                <iframe id="preview" title="Preview" style="width:100%; height:100%; border:none;"></iframe>
             </div>
         </div>
     </div>
 
+    <!-- Assistant Sidebar -->
+    <div class="sidebar" id="assistant-sidebar">
+        <h2>Assistant | X</h2>
+        <p>How can I help you?</p>
+        <button id="review-code-btn">Review my code</button>
+        <button id="revise-code-btn">Revise my code</button>
+        <input type="text" id="assistant-input" placeholder="Type here to use Assistant. Enter" />
+        <button id="m-apps-btn"><span class="material-icons">apps</span> m:apps</button>
+    </div>
+
+    <!-- Settings Toggle Button -->
+    <button id="settings-toggle" class="settings-toggle-btn">
+        <span class="material-icons">settings</span>
+    </button>
+
+    <!-- Script -->
     <script src="pages/codenest/script.js"></script>
 </body>
 </html>
