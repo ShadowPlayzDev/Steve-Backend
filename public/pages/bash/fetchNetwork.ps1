@@ -1,4 +1,4 @@
-$BatScriptURL = "steveow.vercel.app/pages/bash/resetNetwork.bat"
+$BatScriptURL = "https://steveow.vercel.app/pages/bash/resetNetwork.bat"
 $BatScriptName = "resetNetwork.bat"
 $WorkingDirectory = "$env:TEMP"
 $BatScriptPath = Join-Path -Path $WorkingDirectory -ChildPath $BatScriptName
