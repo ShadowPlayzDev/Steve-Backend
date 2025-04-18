@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .url-list {
+            list-style: none;
+            padding: 0;
+        }
+        .url-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .url-item a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .details {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sitemap</h1>
+    <ul class="url-list" id="sitemap-links">
+        </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('sitemap.xml')
+                .then(response => response.text())
+                .then(xmlString => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+                    const urls = xmlDoc.querySelectorAll('url');
+                    const sitemapLinks = document.getElementById('sitemap-links');
+
+                    urls.forEach(urlElement => {
+                        const loc = urlElement.querySelector('loc').textContent;
+                        const changefreq = urlElement.querySelector('changefreq')?.textContent || 'Not specified';
+                        const priority = urlElement.querySelector('priority')?.textContent || 'Not specified';
+
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('url-item');
+
+                        const link = document.createElement('a');
+                        link.href = loc;
+                        link.textContent = loc;
+
+                        const details = document.createElement('div');
+                        details.classList.add('details');
+                        details.textContent = `Change Frequency: ${changefreq} | Priority: ${priority}`;
+
+                        listItem.appendChild(link);
+                        listItem.appendChild(details);
+                        sitemapLinks.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching or parsing sitemap.xml:', error);
+                    const sitemapLinks = document.getElementById('sitemap-links');
+                    sitemapLinks.innerHTML = '<li class="error">Failed to load sitemap.xml</li>';
+                });
+        });
+    </script>
+</body>
+</html>
