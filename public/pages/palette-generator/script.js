@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lockBtn.textContent = lockedColors.includes(index) ? 'lock' : 'lock_open';
       lockBtn.addEventListener('click', () => toggleLock(index));
       
+      // Shuffle button (Material icon)
+      const shuffleBtn = document.createElement('span');
+      shuffleBtn.classList.add('material-icons');
+      shuffleBtn.textContent = 'shuffle';
+      shuffleBtn.addEventListener('click', () => shuffleColors(index));
+
       // Complement button (Material icon)
       const complementBtn = document.createElement('span');
       complementBtn.classList.add('material-icons');
@@ -41,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       colorSelectorBtn.addEventListener('click', () => openColorPicker(index));
 
       colorActions.appendChild(lockBtn);
+      colorActions.appendChild(shuffleBtn);
       colorActions.appendChild(complementBtn);
       colorActions.appendChild(colorSelectorBtn);
 
@@ -52,6 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Generate a random color in hex format
   function getRandomColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
+
+  // Shuffle the colors
+  function shuffleColors(index) {
+    if (!lockedColors.includes(index)) {
+      colors[index] = getRandomColor();
+      renderPalette();
+    }
   }
 
   // Toggle lock/unlock for a color
@@ -88,23 +103,43 @@ document.addEventListener("DOMContentLoaded", function () {
     return `#${r}${g}${b}`;
   }
 
-  // Open a color picker for a color
+  // Open a modern modal color picker for a color
   function openColorPicker(index) {
-    const colorBox = document.querySelectorAll('.color-box')[index];
-    const currentColor = colors[index];
+    const modal = document.createElement('div');
+    modal.classList.add('color-picker-modal');
+    
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    overlay.addEventListener('click', () => closeModal(modal));
 
-    // Create and show a color picker
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    // Create the color picker input
     const colorPicker = document.createElement('input');
     colorPicker.type = 'color';
-    colorPicker.value = currentColor;
-    
+    colorPicker.value = colors[index];
+
     colorPicker.addEventListener('input', (e) => {
       colors[index] = e.target.value;
       renderPalette();
     });
 
-    // Append the color picker to the color box
-    colorBox.appendChild(colorPicker);
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.addEventListener('click', () => closeModal(modal));
+
+    modalContent.appendChild(colorPicker);
+    modalContent.appendChild(saveButton);
+    modal.appendChild(overlay);
+    modal.appendChild(modalContent);
+
+    document.body.appendChild(modal);
+  }
+
+  // Close modal
+  function closeModal(modal) {
+    document.body.removeChild(modal);
   }
 
   // Generate the share link based on the colors
