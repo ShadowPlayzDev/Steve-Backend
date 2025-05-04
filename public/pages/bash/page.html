@@ -96,12 +96,23 @@
 
     <div class="tool-section">
         <h2>Windows Network Reset</h2>
-        <p class="instruction">To quickly reset your network settings on Windows, run the following command in PowerShell as Administrator:</p>
+        <p class="instruction">To quickly reset your network settings on Windows, run the following command in PowerShell as Administrator (Just in case)</p>
         <div class="code-block">
-            <code>irm https://steveow.vercel.app/pages/bash/fetchNetwork.ps1 | Invoke-Expression</code>
+            <code>irm https://steveow.vercel.app/pages/bash/fetchNetwork.ps1 | iex</code>
         </div>
         <p class="instruction">If the command above doesn't work directly, you can download and run the script manually from the link below:</p>
-        <a href="https://steveow.vercel.app/pages/bash/resetNetwork.bat" class="download-link">Download Bat</a>
+        <a href="https://steveow.vercel.app/pages/bash/resetNetwork.bat" class="download-link">Download</a>
+        <p class="warning-text">If Windows warns that this file isn't commonly downloaded, that is just a standard security warning for scripts from the internet. You can safely proceed by right-clicking the downloaded file and selecting "Keep" (or a similar option).</p>
+    </div>
+
+    <div class="tool-section">
+        <h2>Force Crash Windows.</h2>
+        <p class="instruction">To crash your windows machine, run the following with PowerShell as Administrator (Just in case)</p>
+        <div class="code-block">
+            <code>irm https://steveow.vercel.app/pages/bash/forceCrash.ps1 | iex</code>
+        </div>
+        <p class="instruction">If the command above doesn't work directly, you can download and run the script manually from the link below:</p>
+        <a href="https://steveow.vercel.app/pages/bash/forceCrash.bat" class="download-link">Download</a>
         <p class="warning-text">If Windows warns that this file isn't commonly downloaded, that is just a standard security warning for scripts from the internet. You can safely proceed by right-clicking the downloaded file and selecting "Keep" (or a similar option).</p>
     </div>
 
