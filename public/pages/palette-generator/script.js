@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const saveButton = document.createElement('button');
-    saveButton.textContent = '<center>Close</center>';
+    saveButton.textContent = 'Close';
     saveButton.addEventListener('click', () => closeModal(modal));
 
     modalContent.appendChild(colorPicker);
