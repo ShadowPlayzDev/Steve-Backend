@@ -13,6 +13,6 @@ $characters = @('1','2','3','4','5','6','7','8','9','0',
                'S','T','U','V','W','X','Y','Z','!','@','#',
                '$','%','^','&','*','(','','')
 # Wait .5 Seconds
-Start-Sleep -Milliseconds 500
+Start-Sleep -Milliseconds 1500
 $password = -join ((1..$length) | ForEach-Object { $characters | Get-Random })
 Write-Output "Generated Password: $password"
