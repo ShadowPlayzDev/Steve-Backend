@@ -1,3 +1,5 @@
+$originalErrorActionPreference = $ErrorActionPreference
+$ErrorActionPreference = "SilentlyContinue"
 param (
     [int]$length = 16
 )
@@ -16,3 +18,4 @@ $characters = @('1','2','3','4','5','6','7','8','9','0',
 Start-Sleep -Milliseconds 1500
 $password = -join ((1..$length) | ForEach-Object { $characters | Get-Random })
 Write-Output "Generated Password: $password"
+$ErrorActionPreference = $originalErrorActionPreference
