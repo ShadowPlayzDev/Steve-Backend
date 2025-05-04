@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Shuffle button (Material icon)
       const shuffleBtn = document.createElement('span');
       shuffleBtn.classList.add('material-icons');
-      shuffleBtn.textContent = 'shuffle';
+      shuffleBtn.textContent = 'refresh';
       shuffleBtn.addEventListener('click', () => shuffleColors(index));
 
       // Complement button (Material icon)
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Color selector button (Material icon)
       const colorSelectorBtn = document.createElement('span');
       colorSelectorBtn.classList.add('material-icons');
-      colorSelectorBtn.textContent = 'palette';
+      colorSelectorBtn.textContent = 'colorize';
       colorSelectorBtn.addEventListener('click', () => openColorPicker(index));
 
       colorActions.appendChild(lockBtn);
