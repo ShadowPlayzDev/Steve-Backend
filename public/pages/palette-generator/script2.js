@@ -91,21 +91,62 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openColorPicker(index) {
-    const input = document.createElement('input');
-    input.type = 'color';
-    input.value = colors[index];
-    input.addEventListener('input', (e) => {
+    const modal = document.createElement('div');
+    modal.classList.add('color-picker-modal');
+    
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    overlay.addEventListener('click', () => closeModal(modal));
+
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    const colorPicker = document.createElement('input');
+    colorPicker.type = 'color';
+    colorPicker.value = colors[index];
+
+    colorPicker.addEventListener('input', (e) => {
       colors[index] = e.target.value;
       renderPalette();
     });
-    input.click();
+
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Close';
+    saveButton.addEventListener('click', () => closeModal(modal));
+
+    modalContent.appendChild(colorPicker);
+    modalContent.appendChild(saveButton);
+    modal.appendChild(overlay);
+    modal.appendChild(modalContent);
+
+    document.body.appendChild(modal);
   }
 
-  const addColorBtn = document.getElementById('add-color-btn');
-  addColorBtn.addEventListener('click', () => {
+  function closeModal(modal) {
+    document.body.removeChild(modal);
+  }
+
+  function generateShareLink() {
+    const shareLink = `${window.location.origin}/palette-generator?share=${colors.join(',')}`;
+
+    window.history.pushState({}, "", shareLink);
+
+    const linkInput = document.createElement('input');
+    linkInput.value = shareLink;
+    document.body.appendChild(linkInput);
+    linkInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(linkInput);
+
+    alert(`Share link copied: ${shareLink}`);
+  }
+
+  renderPalette();
+
+  document.querySelector('.generate-link').addEventListener('click', generateShareLink);
+
+  document.querySelector('.add-color').addEventListener('click', function () {
     colors.push(getRandomColor());
     renderPalette();
   });
-
-  renderPalette();
 });
