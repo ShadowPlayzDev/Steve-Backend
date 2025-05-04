@@ -1,0 +1,91 @@
+/* style.css */
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #222;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #555;
+}
+
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 1rem;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.color-box {
+  flex: 1 1 150px;
+  height: 200px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+  user-select: none;
+}
+
+.color-box:hover {
+  transform: scale(1.05);
+}
+
+.color-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.color-actions span {
+  background: rgba(0,0,0,0.4);
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.color-actions span:hover {
+  background: rgba(0,0,0,0.6);
+}
