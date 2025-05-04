@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toolsContainer = document.getElementById('tools-container');
     const searchInput = document.getElementById('search-input');
 
-    fetch('bash_tools.json')
+    fetch('pages/bash/bash_tools.json')
         .then(response => response.json())
         .then(data => {
             displayTools(data.sections);
