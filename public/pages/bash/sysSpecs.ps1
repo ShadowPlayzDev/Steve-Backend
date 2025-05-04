@@ -1,3 +1,4 @@
+Write-Host "  `n"
 Write-Host "=== System Information ===`n"
 
 Write-Host "OS:" (Get-CimInstance Win32_OperatingSystem).Caption
