@@ -159,15 +159,15 @@ document.addEventListener("DOMContentLoaded", function () {
     renderPalette();
   });
 
-  document.querySelector('.shuffle-all').addEventListener('click', shuffleAllColors);
-
-  document.querySelector('.login').addEventListener('click', () => {
-    alert('Login functionality is not implemented yet.');
+  document.querySelector('.login').addEventListener('click', function () {
+    const username = prompt("Enter your username:");
+    if (username) {
+      alert(`Logged in as ${username}`);
+    }
   });
 
   document.addEventListener('keydown', function (e) {
     if (e.code === 'Space') {
-      e.preventDefault();
       shuffleAllColors();
     }
   });
