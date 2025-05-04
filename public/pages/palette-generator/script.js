@@ -60,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function shuffleAllColors() {
+    for (let i = 0; i < colors.length; i++) {
+      if (!lockedColors.includes(i)) {
+        colors[i] = getRandomColor();
+      }
+    }
+    renderPalette();
+  }
+
   function toggleLock(index) {
     if (lockedColors.includes(index)) {
       lockedColors = lockedColors.filter(i => i !== index);
@@ -148,5 +157,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector('.add-color').addEventListener('click', function () {
     colors.push(getRandomColor());
     renderPalette();
+  });
+
+  document.querySelector('.shuffle-all').addEventListener('click', shuffleAllColors);
+
+  document.querySelector('.login').addEventListener('click', () => {
+    alert('Login functionality is not implemented yet.');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      shuffleAllColors();
+    }
   });
 });
