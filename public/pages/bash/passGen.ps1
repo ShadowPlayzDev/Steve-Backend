@@ -50,6 +50,6 @@ switch ($choice) {
         Write-Output "Exiting..."
     }
     Default {
-        Write-Output "Invalid option `$choice`"
+        Write-Output "Invalid option '$choice'"
     }
 }
