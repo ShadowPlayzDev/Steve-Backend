@@ -1,16 +1,16 @@
-param (
-    [string]$length = 16
-)
-
-# Validate that $length is a number and within a reasonable range
+$uri = [System.Web.HttpUtility]::ParseQueryString([System.Uri]::EscapeUriString($MyInvocation.MyCommand.Definition))
+$length = $uri["length"]
+if (-not $length) {
+    $length = 16
+}
 if ($length -match '^\d+$' -and $length -ge 8 -and $length -le 128) {
     $length = [int]$length
 } else {
     Write-Output "Invalid length specified. Using default length (16)."
     $length = 16
 }
-
-$characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
-$password = -join ((Get-Random -Count $length -InputObject $characters) | ForEach-Object {$_})
+# Define characters used for password
+$characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()"
+$password = -join ((1..$length) | ForEach-Object { $characters | Get-Random })
 
 Write-Output "Generated Password: $password"
