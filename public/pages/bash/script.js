@@ -23,10 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (section.title && section.title !== "Bash Tools") {
                 const toolDiv = document.createElement('div');
                 toolDiv.classList.add('tool-section');
+                let imageHtml = '';
+                if (section.image) {
+                    imageHtml = `<img src="${escapeHtml(section.image)}" alt="${escapeHtml(section.title)}" class="tool-image">`;
+                }
                 toolDiv.innerHTML = `
                     <h2>${section.title}</h2>
                     ${section.description ? `<p class="instruction">${section.description}</p>` : ''}
                     ${section.instruction ? `<p class="instruction">${section.instruction}</p>` : ''}
+                    ${imageHtml}
                     ${section.code ? `<div class="code-block"><code>${escapeHtml(section.code)}</code></div>` : ''}
                     ${section.download_link ? `<a href="${section.download_link}" class="download-link">Download</a>` : ''}
                     ${section.warning ? `<p class="warning-text">${section.warning}</p>` : ''}
@@ -52,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         displayTools(filteredTools);
     }
+
     function escapeHtml(unsafe) {
         return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     }
