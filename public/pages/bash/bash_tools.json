@@ -21,7 +21,7 @@
       "download_link": "https://steveow.vercel.app/pages/bash/sysSpecs.ps1",
       "warning": "If Windows warns that this file isn't commonly downloaded, that is just a standard security warning for scripts from the internet. You can safely proceed by right-clicking the downloaded file and selecting \"Keep\" (or a similar option).",
       "image": "pages/bash/sysspecs-example.png"
-    },"
+    },
     {
       "title": "Password Generator",
       "description": "Generate a secure password, run this with PowerShell as Administrator (Just in case)",
