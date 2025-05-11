@@ -8,7 +8,6 @@
     {
       "title": "Windows Network Reset",
       "description": "To quickly reset your network settings on Windows run the following command in PowerShell.",
-      "instruction": "If the command above doesn't work directly, you can download and run the script manually from the link below:",
       "code": "irm https://steveow.vercel.app/pages/bash/fetchNetwork.ps1 | iex",
       "download_link": "https://steveow.vercel.app/pages/bash/resetNetwork.bat",
       "warning": "If Windows warns that this file isn't commonly downloaded, that is just a standard security warning for scripts from the internet. You can safely proceed by right-clicking the downloaded file and selecting \"Keep\" (or a similar option)."
