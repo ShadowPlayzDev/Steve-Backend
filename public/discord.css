@@ -1,31 +1,55 @@
-// Custom Discord theme builder
-/* Main App */
+/* CUSTOM DISCORD THEME BUILDER */
+/* USE VARIABLES TO DESIGN YOUR OWN! */
+/* RUN @import url() TO INSTALL ON CLIENT! */
+body {
+  font-family: var(--custom-font);
+}
+
+.sidebarList_c48ade .name__2ea32,
+.sidebarList_c48ade h3 {
+  text-transform: var(--uppercase-text) !important;
+}
+
+.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) * {
+  color: transparent !important;
+  font-size: 0 !important;
+  display: var(--minimal-dms);
+}
+
+.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) svg,
+.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) .icon__2ea32,
+.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) .svg-icon {
+  /* Keep icons visible */
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+/* == Main App Zoom == */
 #app-mount.appMount__51fd7 {
   zoom: var(--app-zoom-level);
 }
 
-/* Active Now tab */
+/* == Active Now Tab Visibility == */
 .nowPlayingColumn__133bf {
   display: var(--hide-active-now);
 }
 
-/* Server Sidebar */
+/*Server Sidebar*/
 .sidebarList_c48ade.sidebarListRounded_c48ade {
   max-width: var(--channels-width);
   overflow-x: hidden !important;
 }
 
-/* Channel Name Styling */
+/* Channel Sidebar */
 .sidebarList_c48ade .name__2ea32 {
-  text-transform: uppercase !important;
   letter-spacing: 2px !important;
   font-size: 1em !important;
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  text-transform: var(--uppercase-text) !important; /* Use the variable */
 }
 
-/* == Style the Channels List Scrollbar (Targeting the scroller within the new sidebar) == */
 .sidebarList_c48ade .scroller__629e4::-webkit-scrollbar {
   width: 5px !important;
 }
