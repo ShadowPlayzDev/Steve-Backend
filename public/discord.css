@@ -10,10 +10,12 @@ body {
   text-transform: var(--uppercase-text) !important;
 }
 
-.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) * {
-  color: transparent !important;
-  font-size: 0 !important;
-  display: var(--minimal-dms);
+/* Minimal DMs - Hide Text */
+.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) .name__2ea32,
+.sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) .layout__1aa0c > div[style*="flex: 1 1 auto;"] {
+  color: transparent !important;
+  font-size: 0 !important;
+  display: var(--minimal-dms);
 }
 
 .sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) svg,
