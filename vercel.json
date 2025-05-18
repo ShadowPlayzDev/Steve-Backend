@@ -1,7 +1,7 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/pages/$1/page.html" },
-    { "source": "/", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
     { "source": "/dsc-readme", "destination": "/dsc-readme.txt" }
   ],
   "headers": [
