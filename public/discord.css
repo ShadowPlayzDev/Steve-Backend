@@ -1,0 +1,40 @@
+// Custom Discord theme builder
+/* Main App */
+#app-mount.appMount__51fd7 {
+  zoom: var(--app-zoom-level);
+}
+
+/* Active Now tab */
+.nowPlayingColumn__133bf {
+  display: var(--hide-active-now);
+}
+
+/* Server Sidebar */
+.sidebarList_c48ade.sidebarListRounded_c48ade {
+  max-width: var(--channels-width);
+  overflow-x: hidden !important;
+}
+
+/* Channel Name Styling */
+.sidebarList_c48ade .name__2ea32 {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-size: 1em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* == Style the Channels List Scrollbar (Targeting the scroller within the new sidebar) == */
+.sidebarList_c48ade .scroller__629e4::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.sidebarList_c48ade .scroller__629e4::-webkit-scrollbar-thumb {
+  background-color: rgba(114, 137, 218, 0.6) !important;
+  border-radius: 3px !important;
+}
+
+.sidebarList_c48ade .scroller__629e4::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
