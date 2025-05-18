@@ -1,7 +1,6 @@
 /* CUSTOM DISCORD THEME BUILDER */
 /* USE VARIABLES TO DESIGN YOUR OWN! */
 /* RUN @import url() TO INSTALL ON CLIENT! */
-
 body {
   font-family: var(--custom-font);
 }
@@ -15,8 +14,6 @@ body {
   color: transparent !important;
   font-size: 0 !important;
   display: var(--minimal-dms);
-  min-width: var(--minimal-dm-width);
-  margin-right: 5px;
 }
 
 .sidebarList_c48ade.sidebarListRounded_c48ade nav.privateChannels__35e86 > div:not(.searchBar__35e86) svg,
@@ -25,8 +22,6 @@ body {
   /* Icons */
   color: inherit !important;
   font-size: inherit !important;
-  min-width: var(--minimal-dm-width);
-  margin-right: 5px;
 }
 
 /* == Main App Zoom == */
