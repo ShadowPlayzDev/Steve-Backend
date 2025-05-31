@@ -8,14 +8,14 @@
         return;
     }
 
-    let config = {};
+    let config; // Declare config here, will be assigned entirely
     const defaultContactConfig = {
         theme: "dark",
         title: "Get in Touch",
         message: "We'd love to hear from you! Reach out via email, phone, or connect with us on social media.",
         email: "contact@example.com",
         phone: "+1 (555) 123-4567",
-        address: "123 Dev Street, Suite 456, Anytown, USA",
+        address: "123 Main St, Anytown USA",
         socialIcons: [
             { platform: "twitter", handle: "YourTwitterHandle", icon: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/brands/twitter.svg" },
             { platform: "linkedin", handle: "your-linkedin-profile", icon: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/brands/linkedin-in.svg" },
@@ -26,10 +26,13 @@
     await new Promise(resolve => setTimeout(resolve, 50));
 
     if (window.contactConfig && typeof window.contactConfig === 'object' && Object.keys(window.contactConfig).length > 0) {
-        config = { ...defaultContactConfig, ...window.contactConfig };
-        console.log("Custom configuration loaded for contact module.");
+        config = window.contactConfig;
+        if (!config.theme) {
+            config.theme = defaultContactConfig.theme;
+        }
+        console.log("Custom configuration loaded for contact module. Only specified fields will be displayed.");
     } else {
-        console.warn("No custom configuration detected for the contact module. Using default settings.");
+        console.warn("No custom configuration detected for the contact module. Using full default settings.");
         config = defaultContactConfig;
     }
 
@@ -44,18 +47,17 @@
         case 'app':
         default:
             contactDiv.classList.add('bg-gray-800', 'text-gray-100');
-            // If theme is 'app', it relies on the global page styling.
-            // For this example, 'app' defaults to 'dark' for module background.
-            // You can adjust this to remove specific background/text and rely fully on global.
             break;
     }
 
     contactDiv.innerHTML = '';
 
-    const titleElement = document.createElement('h2');
-    titleElement.className = 'text-2xl font-bold mb-4';
-    titleElement.textContent = config.title;
-    contactDiv.appendChild(titleElement);
+    if (config.title) {
+        const titleElement = document.createElement('h2');
+        titleElement.className = 'text-2xl font-bold mb-4';
+        titleElement.textContent = config.title;
+        contactDiv.appendChild(titleElement);
+    }
 
     if (config.message) {
         const messageElement = document.createElement('p');
