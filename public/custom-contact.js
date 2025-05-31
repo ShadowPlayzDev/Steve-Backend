@@ -1,5 +1,7 @@
 // Custom Contact us page builder.
 
+console.info("Readme file for the Contact Us Module is available at: https://steveow.vercel.app/contact");
+
 (async function() {
     const contactDiv = document.getElementById('contact');
 
@@ -8,7 +10,7 @@
         return;
     }
 
-    let config; // Declare config here, will be assigned entirely
+    let config;
     const defaultContactConfig = {
         theme: "dark",
         title: "Get in Touch",
@@ -68,7 +70,10 @@
 
     const contactInfoDiv = document.createElement('div');
     contactInfoDiv.className = 'space-y-2 mb-6';
+    contactInfoDiv.classList.toggle('text-gray-900', config.theme === 'light');
+    contactInfoDiv.classList.toggle('text-gray-100', config.theme === 'dark' || config.theme === 'app');
     contactDiv.appendChild(contactInfoDiv);
+
 
     if (config.email) {
         const emailLink = document.createElement('a');
@@ -89,6 +94,8 @@
     if (config.address) {
         const addressPara = document.createElement('p');
         addressPara.className = 'text-gray-300';
+        addressPara.classList.toggle('text-gray-900', config.theme === 'light');
+        addressPara.classList.toggle('text-gray-300', config.theme === 'dark' || config.theme === 'app');
         addressPara.innerHTML = `<i class="fas fa-map-marker-alt mr-2"></i>Address: ${config.address}`;
         contactInfoDiv.appendChild(addressPara);
     }
@@ -96,7 +103,8 @@
     if (config.socialIcons && Array.isArray(config.socialIcons) && config.socialIcons.length > 0) {
         const socialTitle = document.createElement('h3');
         socialTitle.className = 'text-lg font-semibold mt-6 mb-3 border-t border-gray-700 pt-4';
-        socialTitle.textContent = 'Connect with us:';
+        socialTitle.classList.toggle('text-gray-900', config.theme === 'light');
+        socialTitle.classList.toggle('text-gray-100', config.theme === 'dark' || config.theme === 'app');
         contactDiv.appendChild(socialTitle);
 
         const socialList = document.createElement('div');
