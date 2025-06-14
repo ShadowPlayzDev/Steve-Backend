@@ -11,5 +11,4 @@ export default [
     "%ProgramFiles(x86)%/Minecraft Launcher/MinecraftLauncher.exe",
     "%ProgramFiles(x86)%/GOG Galaxy/GalaxyClient.exe",
     "%ProgramFiles(x86)%/Epic Games/Launcher/Portal/Binaries/Win64/EpicGamesLauncher.exe",
-    // --- END NEW GAMES ---
 ];
