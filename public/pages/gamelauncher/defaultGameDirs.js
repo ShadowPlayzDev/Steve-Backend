@@ -1,6 +1,15 @@
 export default [
     "%ProgramFiles%/Epic Games/Fortnite/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe",
     "%ProgramFiles(x86)%/Steam/steamapps/common/Cyberpunk 2077/bin/x64/Cyberpunk2077.exe",
-    "%LOCALAPPDATA%/Roblox/Versions/*/RobloxPlayerBeta.exe",
+    "%LOCALAPPDATA%/Roblox/Versions/*/RobloxPlayerBeta.exe", // Example with wildcard for Roblox
     "%ProgramFiles%/Genshin Impact/Genshin Impact Game/GenshinImpact.exe",
+    "%ProgramFiles(x86)%/Battle.net/Overwatch/Overwatch.exe",
+// Launchers
+    "%ProgramFiles%/Riot Games/Riot Client/RiotClientServices.exe",
+    "%ProgramFiles(x86)%/Riot Games/League of Legends/LeagueClient.exe",
+    "%ProgramFiles(x86)%/Battle.net/Battle.net Launcher.exe",
+    "%ProgramFiles(x86)%/Minecraft Launcher/MinecraftLauncher.exe",
+    "%ProgramFiles(x86)%/GOG Galaxy/GalaxyClient.exe",
+    "%ProgramFiles(x86)%/Epic Games/Launcher/Portal/Binaries/Win64/EpicGamesLauncher.exe",
+    // --- END NEW GAMES ---
 ];
