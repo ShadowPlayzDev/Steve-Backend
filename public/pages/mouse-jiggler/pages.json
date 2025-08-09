@@ -1,7 +1,7 @@
 {
   "pageName": "Mouse Jiggler",
   "pageTitle": "Mouse Jiggler - Never go AFK Again!",
-  "pageDesc": "Simple, customizable web page that tricks your mouse into thinking it's moving!",
+  "pageDesc": "Simple, customizable web page that tricks your mouse into thinking it's moving! WARNING! This page may not be suitable for people with epilipsy.",
   "htmlFilePath": "index.html",
   "version": "1.0"
 }
